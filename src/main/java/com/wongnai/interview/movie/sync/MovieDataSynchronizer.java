@@ -23,6 +23,9 @@ public class MovieDataSynchronizer {
 	@Autowired
 	private MovieRepository movieRepository;
 
+	@Autowired
+    private MovieDataIndexer movieDataIndexer;
+
 	@Transactional
 	public void forceSync() {
 		//TODO: implement this to sync movie into repository
@@ -31,6 +34,7 @@ public class MovieDataSynchronizer {
 			Movie movie = new Movie(movieData.getTitle());
 			movie.getActors().addAll(movieData.getCast());
 			movieRepository.save(movie);
+            movieDataIndexer.index(movie);
 		}
 	}
 }
