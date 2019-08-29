@@ -1,21 +1,26 @@
 package com.wongnai.interview.movie.search;
 
-import java.util.List;
-
+import com.wongnai.interview.Application;
+import com.wongnai.interview.movie.Movie;
+import com.wongnai.interview.movie.MovieTestHelper;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.wongnai.interview.movie.Movie;
-import com.wongnai.interview.movie.MovieTestHelper;
+import java.util.List;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
 public class DatabaseMovieSearchServiceIntegrationTest {
+
 	@Autowired
 	private DatabaseMovieSearchService searchService;
 
